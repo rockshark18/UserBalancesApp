@@ -1,0 +1,35 @@
+.dbg {
+    border: 1px dotted #000000 !important;
+}
+
+.dbgr {
+    border: 1px dotted #ff0000 !important;
+}
+
+.dbgg {
+    border: 1px dotted #00ff00 !important;
+}
+
+.dbgb {
+    border: 1px dotted #0000ff !important;
+}
+
+.dbgy {
+    border: 1px dotted #ffff00 !important;
+}
+
+.dbgm {
+    border: 1px dotted #ff00ff !important;
+}
+
+.dbgc {
+    border: 1px dotted #00ffff !important;
+}
+.ndbg {}
+
+.ndbgr {}
+.ndbgg {}
+.ndbgb {}
+.ndbgy {}
+.ndbgm {}
+.ndbgc {}

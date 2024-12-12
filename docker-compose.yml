@@ -1,0 +1,76 @@
+services:
+  nginx:
+    container_name: userbalances.nginx
+    build:
+      context: ./app/docker/dev/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+    depends_on:
+      - app
+    ports:
+      - "3080:80" # API PORT
+    networks:
+      - net0
+  app:
+    container_name: userbalances.app
+    build:
+      context: ./app/docker/dev/app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - composer:/root/.composer/cache
+    environment:
+      PHP_INI_SCAN_DIR: ":/usr/local/etc/php/custom.d"
+      PHP_IDE_CONFIG: "serverName=userbalances-app"
+    networks:
+      - net0
+    command: >   # important moment! we can use/create entrypoint.sh or just run this command
+      sh -c "chown -R www-data:www-data /app/storage &&
+             chmod -R 775 /app/storage &&
+             php-fpm"
+  supervisor:
+    container_name: userbalances.supervisor
+    build:
+      context: ./supervisor
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - ./supervisor:/etc/supervisor/conf.d
+    command: ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+    networks:
+      - net0
+  db:
+    container_name: userbalances.db
+    #restart: always
+    build:
+      context: ./app/docker/dev/db
+      dockerfile: Dockerfile
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: wNAFGRyQb7Ju4PE6rF2hE6bv
+      POSTGRES_DB: userbalances
+    ports:
+      - "54321:5432"
+    networks:
+      - net0
+  frontend:
+      container_name: userbalances.frontend
+      build:
+        context: ./frontend
+        dockerfile: docker/dev/Dockerfile
+        #dockerfile: docker/prod/Dockerfile
+      ports:
+        - "88:8080"
+      volumes:
+        - ./frontend:/frontend
+        - /frontend/node_modules
+      networks:
+        - net0
+volumes:
+  composer:
+  dbdata:
+networks:
+  net0:

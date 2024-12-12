@@ -1,0 +1,88 @@
+@import "./variables.scss";
+
+h1 {
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+h2 {
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+// ашч
+input:-webkit-autofill {
+  background-color: #ffffff !important; /* Цвет для автозаполнения */
+  color: #777 !important;
+  border: 1px solid #ccc !important;
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+input[type="email"].input-email,
+input[type="password"].input-password,
+input[type="text"].input-text {
+  background-color: #ffffff;
+  color: $primary-color;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  height: 40px;
+  padding: 5px 12px;
+  width: 100%;
+
+  /* font */
+  font-family: $primary-font;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+
+  box-shadow: none;
+}
+
+input[type="email"].input-email:focus,
+input[type="password"].input-password:focus,
+input[type="text"].input-text:focus {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+input[type="email"].input-email:-webkit-autofill,
+input[type="password"].input-password:-webkit-autofill,
+input[type="text"].input-text:-webkit-autofill {
+  border: 1px solid #ccc !important; /* Принудительно */
+  box-shadow: 0 0 0px 1000px #ffffff inset !important;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}
+
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+@media (min-width: 0px) { // XS+
+  input[type="email"].input-email,
+  input[type="password"].input-password,
+  input[type="text"].input-text {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) { // MD+
+  input[type="email"].input-email,
+  input[type="password"].input-password,
+  input[type="text"].input-text {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) { // XL+
+  input[type="email"].input-email,
+  input[type="password"].input-password,
+  input[type="text"].input-text {
+    font-size: 16px;
+  }
+}
+
