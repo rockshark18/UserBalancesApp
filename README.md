@@ -1,7 +1,7 @@
 
 ![2024-12-13 02_40_19-ubu - VMware Workstation](https://github.com/user-attachments/assets/7d19ee28-2269-4ca0-9771-a009b06fa8c8)
 
-**ПОСМОТРЕТЬ ВИДЕО НА YOUTUBE**: https://www.youtube.com/watch?v=SZmycJ6Zr4I
+**ПОСМОТРЕТЬ ВИДЕО НА YOUTUBE**: https://www.youtube.com/watch?v=GzHHgrKammc
 
 **Затраченные человекочасы:** ~5 рабочих дней
 
